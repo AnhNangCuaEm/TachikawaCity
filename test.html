@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiyasuya Style Scroll Effect</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #000;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .scroll-container {
+            position: relative;
+            width: 100%;
+        }
+
+        section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .sticky-section {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .section-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            will-change: transform;
+        }
+
+        .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: brightness(0.7);
+            transition: filter 0.8s ease;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .section-desc {
+            font-size: 1.5rem;
+            max-width: 70%;
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.8s ease 0.1s, opacity 0.8s ease 0.1s;
+        }
+
+        .shadow-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Định nghĩa ảnh nền với nguồn ổn định */
+        #section1 .section-bg {
+            background-image: url('https://images.pexels.com/photos/5731464/pexels-photo-5731464.jpeg');
+        }
+
+        #section2 .section-bg {
+            background-image: url('https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg');
+        }
+
+        #section3 .section-bg {
+            background-image: url('https://images.pexels.com/photos/161251/senso-ji-temple-japan-kyoto-landmark-161251.jpeg');
+        }
+
+        #section4 .section-bg {
+            background-image: url('https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg');
+        }
+
+        #section5 .section-bg {
+            background-image: url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg');
+        }
+
+
+        /* Hiệu ứng overlay cho mỗi section */
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        /* Active state cho text khi section visible */
+        section.active .section-title,
+        section.active .section-desc {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 100px 0;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-container">
+        <section id="section1">
+            <div class="sticky-section">
+                <div class="section-bg"></div>
+                <div class="section-content">
+                    <h1 class="section-title">KIYASUYA</h1>
+                    <p class="section-desc">Trải nghiệm văn hóa truyền thống Nhật Bản</p>
+                </div>
+                <div class="shadow-overlay"></div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <div class="sticky-section">
+                <div class="section-bg"></div>
+                <div class="section-content">
+                    <h2 class="section-title">Kiến Trúc</h2>
+                    <p class="section-desc">Nơi gặp gỡ giữa quá khứ và hiện tại, thiết kế truyền thống kết hợp với tiện nghi hiện đại</p>
+                </div>
+                <div class="shadow-overlay"></div>
+            </div>
+        </section>
+
+        <section id="section3">
+            <div class="sticky-section">
+                <div class="section-bg"></div>
+                <div class="section-content">
+                    <h2 class="section-title">Trải Nghiệm</h2>
+                    <p class="section-desc">Tận hưởng không gian thanh bình giữa lòng thành phố náo nhiệt</p>
+                </div>
+                <div class="shadow-overlay"></div>
+            </div>
+        </section>
+
+        <section id="section4">
+            <div class="sticky-section">
+                <div class="section-bg"></div>
+                <div class="section-content">
+                    <h2 class="section-title">Ẩm Thực</h2>
+                    <p class="section-desc">Khám phá hương vị tinh tế của ẩm thực Nhật Bản từ những nguyên liệu tươi ngon nhất</p>
+                </div>
+                <div class="shadow-overlay"></div>
+            </div>
+        </section>
+
+        <section id="section5">
+            <div class="sticky-section">
+                <div class="section-bg"></div>
+                <div class="section-content">
+                    <h2 class="section-title">Gặp Gỡ</h2>
+                    <p class="section-desc">Không gian lý tưởng cho những cuộc gặp gỡ đáng nhớ</p>
+                </div>
+                <div class="shadow-overlay"></div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>© 2025 Kiyasuya Style Demo</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const shadowOverlays = document.querySelectorAll('.shadow-overlay');
+            const viewportHeight = window.innerHeight;
+
+            // Tạo biến cho vị trí bắt đầu của mỗi section
+            let sectionOffsets = [];
+            
+            // Thêm chiều cao cho mỗi section
+            sections.forEach((section, index) => {
+                section.style.height = `${viewportHeight * 1.5}px`;
+                // Lưu vị trí offset của mỗi section
+                sectionOffsets[index] = index * viewportHeight * 1.5;
+                
+                // Tạo hiệu ứng xếp chồng ban đầu
+                const stickySection = section.querySelector('.sticky-section');
+                if (index > 0) {
+                    // Các section sau section đầu tiên được đặt ở vị trí bên dưới
+                    stickySection.style.top = `${index * viewportHeight * 0.2}px`;
+                }
+            });
+
+            function handleScroll() {
+                const scrollTop = window.scrollY;
+                
+                // Xác định section hiện tại dựa trên vị trí cuộn
+                let currentSectionIndex = 0;
+                for (let i = 0; i < sectionOffsets.length; i++) {
+                    if (scrollTop >= sectionOffsets[i]) {
+                        currentSectionIndex = i;
+                    } else {
+                        break;
+                    }
+                }
+                
+                // Tính vị trí đáy của section hiện tại
+                const currentSectionBottom = (currentSectionIndex + 1) * viewportHeight;
+                
+                sections.forEach((section, index) => {
+                    const sectionTop = sectionOffsets[index];
+                    const stickySection = section.querySelector('.sticky-section');
+                    const content = section.querySelector('.section-content');
+                    const nextSection = sections[index + 1];
+                    
+                    // Tính toán tiến trình scroll cho section hiện tại
+                    const scrollProgress = Math.min(1, Math.max(0, (scrollTop - sectionTop) / viewportHeight));
+                    
+                    // Hiệu ứng trượt cho mỗi section
+                    if (index === currentSectionIndex) {
+                        // Section hiện tại - trượt lên khi scroll
+                        section.classList.add('active');
+                        content.style.transform = `translateY(-${scrollProgress * 100}%)`;
+                        
+                        // Tính toán khi nào section hiện tại hoàn toàn ra khỏi màn hình
+                        // Nếu đáy của section vượt quá đỉnh của viewport
+                        const currentSectionFullyScrolled = scrollTop + viewportHeight >= sectionTop + viewportHeight;
+                        
+                        // Điều chỉnh shadow overlay cho section tiếp theo
+                        if (nextSection && currentSectionFullyScrolled) {
+                            const nextOverlay = nextSection.querySelector('.shadow-overlay');
+                            if (nextOverlay) {
+                                // Phần còn lại của section hiện tại (phần vẫn hiển thị)
+                                const remainingPortion = Math.max(0, (sectionTop + sectionOffsets[0] - scrollTop) / viewportHeight);
+                                // Shadow mờ dần khi section hiện tại trượt hết khỏi viewport
+                                const shadowOpacity = Math.min(0.8, 1 - remainingPortion);
+                                nextOverlay.style.opacity = shadowOpacity;
+                            }
+                        }
+                        
+                    } else if (index < currentSectionIndex) {
+                        // Các section trước - đã trượt lên hoàn toàn
+                        section.classList.remove('active');
+                        content.style.transform = 'translateY(-100%)';
+                        
+                    } else if (index === currentSectionIndex + 1) {
+                        // Section kế tiếp - CHỈ di chuyển khi phần dưới cùng của section trên đã scroll ra khỏi màn hình
+                        section.classList.add('active');
+                        
+                        const prevSectionBottom = scrollTop + viewportHeight - sectionOffsets[currentSectionIndex];
+                        const prevSectionFullyOutOfView = prevSectionBottom >= viewportHeight;
+                        
+                        if (prevSectionFullyOutOfView) {
+                            // Tính toán vị trí mới dựa trên mức độ section trước đã ra khỏi màn hình
+                            const scrollBeyondCurrentSection = scrollTop - (sectionOffsets[currentSectionIndex] + viewportHeight);
+                            const moveProgress = Math.min(1, scrollBeyondCurrentSection / (viewportHeight * 0.5));
+                            stickySection.style.top = `${Math.max(0, viewportHeight * 0.2 - (moveProgress * viewportHeight * 0.2))}px`;
+                        } else {
+                            // Giữ nguyên vị trí ban đầu khi section trên chưa hoàn toàn ra khỏi màn hình
+                            stickySection.style.top = `${viewportHeight * 0.2}px`;
+                        }
+                        
+                    } else if (index === currentSectionIndex + 2) {
+                        // Section thứ 3 - cũng chỉ di chuyển khi section trước nó bắt đầu di chuyển
+                        section.classList.add('active');
+                        
+                        const prevSectionBottom = scrollTop + viewportHeight - sectionOffsets[currentSectionIndex];
+                        const prevSectionFullyOutOfView = prevSectionBottom >= viewportHeight;
+                        
+                        if (prevSectionFullyOutOfView) {
+                            // Tính toán vị trí mới khi section trước đã bắt đầu di chuyển
+                            const scrollBeyondCurrentSection = scrollTop - (sectionOffsets[currentSectionIndex] + viewportHeight);
+                            const moveProgress = Math.min(1, scrollBeyondCurrentSection / (viewportHeight * 0.5));
+                            
+                            // Section thứ 3 chỉ di chuyển sau section thứ 2 một chút
+                            if (moveProgress > 0.5) {
+                                const adjustedProgress = (moveProgress - 0.5) * 2; // Biến đổi 0.5-1.0 thành 0-1.0
+                                stickySection.style.top = `${Math.max(viewportHeight * 0.2, viewportHeight * 0.4 - (adjustedProgress * viewportHeight * 0.2))}px`;
+                            } else {
+                                // Giữ nguyên vị trí ban đầu 
+                                stickySection.style.top = `${viewportHeight * 0.4}px`;
+                            }
+                        } else {
+                            // Giữ nguyên vị trí ban đầu
+                            stickySection.style.top = `${viewportHeight * 0.4}px`;
+                        }
+                        
+                    } else {
+                        // Các section còn lại - chưa hiện ra
+                        section.classList.remove('active');
+                        stickySection.style.top = `${index * viewportHeight * 0.2}px`;
+                    }
+                    
+                    // Reset về vị trí ban đầu khi chưa scroll tới
+                    if (scrollTop < sectionTop) {
+                        content.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            // Kết nối sự kiện cuộn
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', () => {
+                const newViewportHeight = window.innerHeight;
+                
+                // Cập nhật chiều cao và vị trí offset
+                sectionOffsets = [];
+                sections.forEach((section, index) => {
+                    section.style.height = `${newViewportHeight * 1.5}px`;
+                    sectionOffsets[index] = index * newViewportHeight * 1.5;
+                    
+                    const stickySection = section.querySelector('.sticky-section');
+                    if (index > 0) {
+                        stickySection.style.top = `${index * newViewportHeight * 0.2}px`;
+                    }
+                });
+                
+                handleScroll();
+            });
+
+            // Khởi tạo
+            handleScroll();
+        });
+    </script>
+</body>
+
+</html>
