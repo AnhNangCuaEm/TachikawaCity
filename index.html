@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <title>Tachikawa</title>
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -32,7 +33,7 @@
         <nav class="flex flex-col text-xl space-y-4">
             <a href="#intro" class="navigation w-fit">紹介</a>
             <a href="#intractive" class="navigation w-fit">魅力</a>
-            <a href="#food" class="navigation w-fit">食べ物</a>
+            <a href="#food" class="navigation w-fit">飲食</a>
             <a href="#transport" class="navigation w-fit">交通</a>
             <a href="#gallery" class="navigation w-fit">ギャラリー</a>
         </nav>
@@ -52,7 +53,7 @@
         </button>
     </div>
 
-    <div class="mobile-sidebar fixed flex justify-between top-0 left-0 text-white py-2 pl-10 z-20">
+    <div class="mobile-sidebar fixed flex justify-between top-0 left-0 text-white backdrop-blur-sm py-2 pl-10 z-20">
         <h1 class="logo cursor-pointer"><a href="index.html"><svg width="80" height="80" viewBox="0 0 230 90"
                     xmlns="http://www.w3.org/2000/svg">
                     <style>
@@ -76,8 +77,8 @@
         <nav
             class="mobile-nav hidden flex-col justify-center items-center text-xl space-y-4 absolute top-0 left-0 w-full h-screen bg-black/80 backdrop-blur-sm z-25">
             <a href="#intro" class="navigation w-fit">紹介</a>
-            <a href="#interactive" class="navigation w-fit">魅力</a>
-            <a href="#food" class="navigation w-fit">食べ物</a>
+            <a href="#intractive" class="navigation w-fit">魅力</a>
+            <a href="#food" class="navigation w-fit">飲食</a>
             <a href="#transport" class="navigation w-fit">交通</a>
             <a href="#gallery" class="navigation w-fit">ギャラリー</a>
         </nav>
@@ -90,21 +91,21 @@
                 <!-- All slides should be absolutely positioned in the same space -->
                 <div class="slideshow-item absolute top-0 left-0 w-full h-full">
                     <img src="./img/IMG_3160.jpg" alt="tachikawaimg" class="w-full h-screen object-cover">
-                    <div class="absolute top-0 right-0 h-full w-1/3 text-white flex flex-col justify-center p-8">
+                    <div class="absolute top-0 right-0 h-full md:w-1/3 text-white flex flex-col justify-center p-8">
                         <h2 class="text-3xl font-bold mb-4 text-shadow">Tachikawa JR Station</h2>
                         <p class="text-xl text-shadow">Tachikawa City, Tokyo</p>
                     </div>
                 </div>
-                <div class="slideshow-item absolute top-0 left-0 w-full h-full hidden">
+                <div class="slideshow-item absolute top-0 left-0 w-full h-full">
                     <img src="./img/IMG_3163.jpg" alt="tachikawaimg" class="w-full h-screen object-cover">
-                    <div class="absolute top-0 right-0 h-full w-1/3 text-white flex flex-col justify-center p-8">
+                    <div class="absolute top-0 right-0 h-full md:w-1/3 text-white flex flex-col justify-center p-8">
                         <h2 class="text-3xl font-bold mb-4 text-shadow">Tama MonoRails</h2>
                         <p class="text-xl text-shadow">Tachikawa City, Tokyo</p>
                     </div>
                 </div>
-                <div class="slideshow-item absolute top-0 left-0 w-full h-full hidden">
+                <div class="slideshow-item absolute top-0 left-0 w-full h-full">
                     <img src="./img/IMG_3152.jpg" alt="tachikawaimg" class="w-full h-screen object-cover">
-                    <div class="absolute top-0 right-0 h-full w-1/3 text-white flex flex-col justify-center p-8">
+                    <div class="absolute top-0 right-0 h-full md:w-1/3 text-white flex flex-col justify-center p-8">
                         <h2 class="text-3xl font-bold mb-4 text-shadow">North Tachikawa</h2>
                         <p class="text-xl text-shadow">Tachikawa City, Tokyo</p>
                     </div>
@@ -124,7 +125,7 @@
             </div>
         </div>
 
-        <div class="introSection content-container mb-6">
+        <div class="bg-[#e8e8e8] content-container mb-6">
             <div class="content">
                 <section id="intro" class="mb-16 p-6 rounded-lg">
                     <h3 class="text-4xl font-semibold mb-4 inline-block pb-2">紹介
@@ -149,22 +150,22 @@
                         style="text-shadow:1px 1px 2px black;">
                         <div class="mx-2">
                             <img src="./img/IMG_2860.jpg" alt="昭和記念公園">
-                            <h3 class="text-2xl font-semibold mb-2 mt-4">国営昭和記念公園</h3>
-                            <p class="text-lg leading-relaxed">
+                            <h3 class="text-2xl font-semibold mb-4 mt-4">国営昭和記念公園</h3>
+                            <p class="text-lg font-light leading-relaxed">
                                 立川市の中心に位置する広大な公園で、四季折々の花や自然を楽しめます。サイクリングやピクニック、日本庭園での抹茶体験など、多彩なアクティビティが満喫できます。
                             </p>
                         </div>
                         <div class="mx-2">
                             <img src="./img/IMG_3153.jpg" alt="立川駅周辺の商業施設">
-                            <h3 class="text-2xl font-semibold mb-2 mt-4">立川駅周辺の商業施設</h3>
-                            <p class="text-lg leading-relaxed">
+                            <h3 class="text-2xl font-semibold mb-4 mt-4">立川駅周辺の商業施設</h3>
+                            <p class="text-lg font-light leading-relaxed">
                                 伊勢丹や高島屋、ルミネ、グランデュオなどの大型商業施設が集まり、ショッピングやグルメが楽しめます。家族や友人と過ごすのに最適なスポットが豊富です。
                             </p>
                         </div>
                         <div class="mx-2">
                             <img src="./img/IMG_3168.jpg" alt="ららぽーと立川立飛">
-                            <h3 class="text-2xl font-semibold mb-2 mt-4">LaLaPort周辺</h3>
-                            <p class="text-lg text-white leading-relaxed">
+                            <h3 class="text-2xl font-semibold mb-4 mt-4">LaLaPort周辺</h3>
+                            <p class="text-lg font-light text-white leading-relaxed">
                                 最新のライフスタイルを体験できる複合施設で、カフェやショップ、イベントスペースなどがあります。都市の便利さと自然や文化の調和が見事に融合しています。
                             </p>
                         </div>
@@ -174,10 +175,10 @@
             </div>
         </div>
 
-        <div class="content-container bg-green-50">
+        <div class="content-container bg-[#D9D9D9]">
             <div class="content">
-                <section id="transport" class="mb-16 bg-yellow-50 p-6">
-                    <h2 class="text-4xl font-semibold mb-6 inline-block pb-2">食べ物</h2>
+                <section id="transport" class="mb-16 p-6">
+                    <h2 class="text-4xl font-semibold mb-6 inline-block pb-2">飲食</h2>
                     <p class="text-lg leading-relaxed">
                         Tachikawa có nhiều lựa chọn ẩm thực từ các món ăn truyền thống Nhật Bản đến các món ăn quốc tế.
                         Bạn
@@ -195,17 +196,14 @@
             <div class="content">
                 <section id="food" class="mb-16 p-6" style="text-shadow:1px 1px 2px black;">
                     <h2 class="text-4xl font-semibold inline-block mb-16">交通</h2>
-                    <p class="text-lg font-light leading-[2.8]">
-                        東京都の中心部から電車で約30分の距離にある立川市には、<br>
-                        中央線、南武線、多摩モノレールなどが乗り入れており、都心や周辺地域へのアクセスが非常に便利です。<br>
+                    <p class="text-lg font-light leading-[2.8]"> 東京都の中心部から電車で約30分の距離にある立川市には、<br>
+                        中央線、南武線、多摩モノレールなどが乗り入れており、<br>
+                        都心や周辺地域へのアクセスが非常に便利です。<br> 
                         新宿や東京方面への直通電車が多く運行され、<br>
-                        通勤や観光の拠点として利用しやすい立川駅には、充実したバスターミナルも併設されています。<br>
-                        市内には効率的なバス路線網が整備され、羽田空港や成田空港へのアクセスも便利です。<br>
-                        また、環境に配慮した自転車専用道路も整備されており、<br>
-                        市内の移動手段として自転車も活用されています。<br>
-                        このように立川市は、<br>
-                        充実した交通インフラと自然環境が見事に調和した、魅力的な街として知られています。
-                    </p>
+                        立川駅には充実したバスターミナルも併設されています。<br>
+                        市内には効率的なバス路線網が整備され、空港へのアクセスも便利です。<br>
+                        また、自転車専用道路も整備されており、市内の移動手段として活用されています。<br> 
+                        このように立川市は、充実した交通インフラと自然環境が調和した魅力的な街です。</p>
                 </section>
             </div>
         </div>
@@ -228,7 +226,7 @@
                                     <img src="./img/IMG_3152.jpg" alt="Gallery Image 3" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
-                                    <img src="./img/IMG_2860.jpg" alt="Gallery Image 4" class="w-full h-auto">
+                                    <img src="./img/IMG_3154.jpg" alt="Gallery Image 4" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
                                     <img src="./img/IMG_3153.jpg" alt="Gallery Image 5" class="w-full h-auto">
@@ -239,16 +237,16 @@
                             </div>
                             <div class="gallery-page grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-w-full">
                                 <div class="overflow-hidden">
-                                    <img src="./img/IMG_3160.jpg" alt="Gallery Image 1" class="w-full h-auto">
+                                    <img src="./img/IMG_3166.jpg" alt="Gallery Image 1" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
-                                    <img src="./img/IMG_3163.jpg" alt="Gallery Image 2" class="w-full h-auto">
+                                    <img src="./img/IMG_3150.jpg" alt="Gallery Image 2" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
-                                    <img src="./img/IMG_3152.jpg" alt="Gallery Image 3" class="w-full h-auto">
+                                    <img src="./img/IMG_3151.jpg" alt="Gallery Image 3" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
-                                    <img src="./img/IMG_2860.jpg" alt="Gallery Image 4" class="w-full h-auto">
+                                    <img src="./img/IMG_3155.jpg" alt="Gallery Image 4" class="w-full h-auto">
                                 </div>
                                 <div class="overflow-hidden">
                                     <img src="./img/IMG_3153.jpg" alt="Gallery Image 5" class="w-full h-auto">
@@ -283,8 +281,9 @@
 
         <div class="footer content-container">
             <div class="content">
-                <footer class="text-center text-white py-2">
-                    ©︎ Tachikawa All right reserved.
+                <footer class="text-sm text-center text-white py-2">
+                    <p>All photographs on this website were taken by the site owner.</p>
+                    <p>©︎ Tachikawa All right reserved.</p>
                 </footer>
             </div>
         </div>
@@ -297,7 +296,7 @@
                 </svg>
             </div>
             <div class="max-w-6xl max-h-[90vh] shadow-2xl">
-                <img id="modalImage" src="" alt="Enlarged image" class="max-w-full max-h-[90vh] object-contain">
+                <img id="modalImage" src="" alt="拡大された画像" class="max-w-full max-h-[90vh] object-contain">
             </div>
         </div>
 

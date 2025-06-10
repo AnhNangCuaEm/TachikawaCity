@@ -1,33 +1,53 @@
 // Slideshow functionality
 document.addEventListener("DOMContentLoaded", function () {
   let currentSlide = 0;
+  let previousSlide = null;
   const slides = document.querySelectorAll(".slideshow-item");
   const dots = document.querySelectorAll(".slide-dot");
   let slideInterval;
 
   // Function to show specific slide
   function showSlide(index) {
-    // Hide all slides
-    slides.forEach((slide) => {
-      slide.classList.add("hidden");
-      slide.style.opacity = "0";
-      slide.style.zIndex = "0";
+    // If it's the first time, no previous slide
+    if (previousSlide === null) {
+      previousSlide = 0;
+    } else {
+      previousSlide = currentSlide;
+    }
+    
+    // Update current slide
+    currentSlide = index;
+    
+    // Hide all slides except current and previous
+    slides.forEach((slide, i) => {
+      if (i !== previousSlide && i !== currentSlide) {
+        slide.classList.remove("current", "previous");
+        slide.style.opacity = "0";
+        slide.style.zIndex = "0";
+      }
     });
-
-    // Show the selected slide
-    slides[index].classList.remove("hidden");
-    slides[index].style.opacity = "1";
-    slides[index].style.zIndex = "1";
+    
+    // Set previous slide
+    if (previousSlide !== currentSlide) {
+      slides[previousSlide].classList.remove("current");
+      slides[previousSlide].classList.add("previous");
+      slides[previousSlide].style.opacity = "0";
+      slides[previousSlide].style.zIndex = "0";
+    }
+    
+    // Show current slide
+    slides[currentSlide].classList.remove("previous");
+    slides[currentSlide].classList.add("current");
+    slides[currentSlide].style.opacity = "1";
+    slides[currentSlide].style.zIndex = "1";
 
     // Update dots
     dots.forEach((dot) => {
       dot.classList.remove("active");
       dot.classList.add("opacity-60");
     });
-    dots[index].classList.add("active");
-    dots[index].classList.remove("opacity-60");
-
-    currentSlide = index;
+    dots[currentSlide].classList.add("active");
+    dots[currentSlide].classList.remove("opacity-60");
   }
 
   // Function to start/reset the slideshow timer
@@ -50,6 +70,18 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide(index);
       startSlideTimer(); // Reset the timer when a dot is clicked
     });
+  });
+
+  // Initial setup - make all slides hidden except the first one
+  slides.forEach((slide, index) => {
+    if (index !== 0) {
+      slide.style.opacity = "0";
+      slide.style.zIndex = "0";
+    } else {
+      slide.classList.add("current");
+      slide.style.opacity = "1";
+      slide.style.zIndex = "1";
+    }
   });
 
   // Initialize the first slide and start the timer
