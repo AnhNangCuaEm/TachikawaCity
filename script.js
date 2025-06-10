@@ -271,3 +271,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 });
+
+// Scroll Animation using Intersection Observer
+document.addEventListener("DOMContentLoaded", function() {
+  // Configure the observer options
+  const observerOptions = {
+    root: null, // use the viewport as the root
+    rootMargin: '0px', // no margin
+    threshold: 0.1 // trigger when at least 10% of the element is visible
+  };
+
+  // Create the observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-active');
+        // If it's a one-time animation, stop observing after it triggers
+        if (entry.target.classList.contains('animate-once')) {
+          observer.unobserve(entry.target);
+        }
+      } else if (!entry.target.classList.contains('animate-once')) {
+        // If it's not a one-time animation, remove the class when out of view
+        entry.target.classList.remove('animate-active');
+      }
+    });
+  }, observerOptions);
+
+  // Get all elements with animation classes
+  const animatedElements = document.querySelectorAll(
+    '.animate-fade, .animate-slide-right, .animate-slide-left, .animate-scale, .animate-stagger'
+  );
+
+  // Observe each element
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+
