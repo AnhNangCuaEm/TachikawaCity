@@ -19,6 +19,22 @@ html {
   scroll-behavior: smooth !important;
 }
 
+/* modern scrollbar  */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(150, 150, 150, 0.706);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(191, 191, 191, 0.706);
+}
+
+
 /* Sidebar styles */
 .sidebar {
   border-right-width: 1px;
